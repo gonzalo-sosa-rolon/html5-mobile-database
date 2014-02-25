@@ -2,7 +2,7 @@ html5-mobile-database
 =====================
 
 H5MDB is a free lib that allow you to more easily implement mobile's CRUD.
-To see it working just clone the repo and open the index.html with Chrome or Safari.
+To see it working just clone the repo and open the index.html with Chrome or Safari (or compile it using Cordova and try it in your phone).
  
 # Usage
 
