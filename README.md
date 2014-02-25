@@ -30,15 +30,15 @@ EmployeeDAO = WebSQLDAO.extend({
 
 You just have to extend the WebSQLDAO and call the WebSQLDAO constructor passing the table description. The framework go to create the table with all the fields for you.
 
-The parameters that you have to pass are:
+WebSQLDAO parameters:
 
 - **DB** The open database.
 - **Table**  The table name.
 - **Fields**  All your fields configuration.
 
-In this example we are creating a table called "Employee" with the fields id, name, lastname and age.
+In this example we are creating a table called "Employee" with the fields id, name, lastname and age. The framework check if the table already exists to avoid sql exceptions.
 
-To use this DAO just create an instance providing the database:
+To use this DAO create an instance providing the database:
 
 ```javascript
 
@@ -109,3 +109,5 @@ dao = new EmployeeDAO(db);
   dao.list(filter, callback);
   
 ```
+
+
