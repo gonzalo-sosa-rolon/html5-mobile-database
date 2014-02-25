@@ -4,7 +4,7 @@ html5-mobile-database
 H5MDB is a lib that allow you to more easily implement mobile's CRUD.
 
  
-## Usage
+# Usage
 
 You have an abstract class called DAO that create all your sql queries for you. You just need to implement the functions exec_query (to exec insert, update and delete queries) and exec_select_query to exec select queries.
 
@@ -47,29 +47,29 @@ dao = new EmployeeDAO(db);
 
 ```
 
-## Inserting, updating and deleting rows.
+# Inserting, updating and deleting rows.
 
-# Inserting data
-
-```javascript
-   var data = {"lastname" : lastname, "age" : age, "name" : name};
-		 dao.insert(data, callback); // implement the callback function to be called after your insert
-```
-
-# Updating data
+## Inserting data
 
 ```javascript
-
-   var data = {"lastname" : lastname, "age" : age, "name" : name};
-		 dao.update(data, callback); // implement the callback function to be called after your update
+	var data = {"lastname" : lastname, "age" : age, "name" : name};
+	dao.insert(data, callback); // implement the callback function to be called after your insert
 ```
 
-# Deleting data
+## Updating data
+
+```javascript
+
+	var data = {"lastname" : lastname, "age" : age, "name" : name};
+	dao.update(data, callback); // implement the callback function to be called after your update
+```
+
+## Deleting data
 
 ```javascript
   
-   var data = {"id" : 4}; // You need to provide the id of the row that you want to delete.
-		 dao.delete_row(data, callback); // implement the callback function to be called after your delete
+	var data = {"id" : 4}; // You need to provide the id of the row that you want to delete.
+	dao.delete_row(data, callback); // implement the callback function to be called after your delete
  
 ```
 
@@ -82,8 +82,8 @@ dao = new EmployeeDAO(db);
   
   function callback(result) {
 		
-		    for (var i = 0; i < result.length; i++) {
-		         // work here with the result set.
+	for (var i = 0; i < result.length; i++) {
+		// work here with the result set.
       }
   }
   
@@ -93,12 +93,11 @@ dao = new EmployeeDAO(db);
 # Using filters
 
 ```javascript
-  // js/generic-dao/filters/filters.js 
+  // read about all the filters in js/generic-dao/filters/filters.js 
  
   function callback(result) {
-		
-		    for (var i = 0; i < result.length; i++) {
-		         // work here with the result set.
+	for (var i = 0; i < result.length; i++) {
+		// work here with the result set.
       }
   }
   
@@ -106,7 +105,6 @@ dao = new EmployeeDAO(db);
   
   filter.add_filter(Filters.eq("name", "Gonzalo"));
   filter.add_filter(Filters.like("name", "Gon%"));
-  // read about all the filters in filters.js file.
   
   dao.list(filter, callback);
   
