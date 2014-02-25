@@ -1,7 +1,7 @@
 html5-mobile-database
 =====================
 
-H5MDB is a lib that allow you to more easily implement mobile's CRUD.
+H5MDB is a free lib that allow you to more easily implement mobile's CRUD.
 
  
 # Usage
@@ -12,7 +12,7 @@ I provide you a WebSQL implementation (that is working on Android, IOS, Chrome, 
 
 But take a look to the class DAO if you want to understand how the lib is working or if you want to implement the lib with another database (localStore, IndexedDB).
 
-## Creating your model using WebSQL implementation
+## Creating your model using the WebSQL implementation
 
 Let start creating our first example. We are going to create an Employee DAO using the WebSQLDAO.
 
@@ -32,9 +32,9 @@ You just have to extend the WebSQLDAO and call the WebSQLDAO constructor passing
 
 The parameters that you have to pass are:
 
-- ** DB ** The open database.
-- ** Table **  The table name.
-- ** fields **  All your fields configuration.
+- **DB** The open database.
+- **Table**  The table name.
+- **Fields**  All your fields configuration.
 
 In this example we are creating a table called "Employee" with the fields id, name, lastname and age.
 
