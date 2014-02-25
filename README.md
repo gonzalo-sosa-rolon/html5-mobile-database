@@ -32,9 +32,9 @@ You just have to extend the WebSQLDAO and call the WebSQLDAO constructor passing
 
 The parameters that you have to pass are:
 
-db : The open database.
-table : The table name.
-fields : All your fields configuration.
+- ** DB ** The open database.
+- ** Table **  The table name.
+- ** fields **  All your fields configuration.
 
 In this example we are creating a table called "Employee" with the fields id, name, lastname and age.
 
