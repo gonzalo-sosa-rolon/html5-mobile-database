@@ -73,9 +73,9 @@ dao = new EmployeeDAO(db);
  
 ```
 
-## Querying data
+# Querying data
 
-# Querying all rows
+## Querying all rows
 
 ```javascript
   
@@ -90,7 +90,7 @@ dao = new EmployeeDAO(db);
   dao.list(null, callback);
 ```
 
-# Using filters
+## Using filters
 
 ```javascript
   // read about all the filters in js/generic-dao/filters/filters.js 
