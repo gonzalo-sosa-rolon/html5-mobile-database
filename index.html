@@ -1,0 +1,134 @@
+<html>
+  <head>
+    <title>Employess</title>	
+	<meta charset="utf-8">
+	
+	<!-- Jquery links -->
+	<link rel="stylesheet" href="js/sample/libs/jquerymobile/jquery.mobile-1.4.1.min.css" />
+    <script src="js/sample/libs/jquery.js"></script>
+    <script src="js/sample/libs/jquerymobile/jquery.mobile-1.4.1.min.js"></script>
+	
+	<!-- Generic DAO links -->	
+	<script type="text/javascript" src="js/generic-dao/utils/Class.js"></script>
+	<script type="text/javascript" src="js/generic-dao/utils/sql-sintax-util.js"></script>
+	<script type="text/javascript" src="js/generic-dao/filters/filters.js"></script>
+	<script type="text/javascript" src="js/generic-dao/dao.js"></script>
+	<script type="text/javascript" src="js/generic-dao/websql-dao.js"></script>
+	
+	<!-- Sample links -->
+	<script type="text/javascript" src="js/sample/daos.js"></script>	     
+	
+    
+	<script>
+		
+	function callback(result) {
+				
+		var employees_list = $("#employees_list")[0];
+		var html = "";
+		
+		for (var i = 0; i < result.length; i++) {
+			
+			var employee = result[i];
+				html += "<tr>";			
+				html += "<td>";
+				html += employee.name;
+				html += "</td>";
+				html += "<td>";
+				html += employee.lastname;
+				html += "</td>";
+				html += "<td>";
+				html += employee.age;
+				html += "</td>";				
+				html += "</tr>";		
+		}		
+		$("#resultBody").html(html);
+	}
+	
+	function new_employee() {
+		var lastname = $("#lastname").val();
+		var age = $("#age").val();
+		var name = $("#name").val();
+		
+		var data = {"lastname" : lastname, "age" : age, "name" : name};
+		dao.insert(data, list);		
+	}
+	
+	function filter_list(){
+		var lastname = $("#lastname").val();
+		var age = $("#age").val();
+		var name = $("#name").val();
+		
+		
+		var filter = new Filter();
+		
+		if (lastname) {
+			filter.add_filter(Filters.like("lastname", "%" + lastname + "%"));
+		}
+		
+		
+		if (name) {
+			filter.add_filter(Filters.like("name", "%" + name + "%"));
+		}
+		
+		if (age) {
+			filter.add_filter(Filters.eq("age", age));
+		}
+		
+		list(filter);
+	}
+	
+	function list(filter) {		
+		dao.list(filter, callback);
+	}
+	
+	$(document).ready( function() {
+		var db = window.openDatabase("Database", "1.0", "Database example", 200000);
+		dao = new EmployeeDAO(db);				
+		list();
+	});
+	</script>
+    
+  </head>
+  
+  <body>
+  	
+   <div data-role="page" data-theme="a">
+	    <div data-role="header">
+		Employees   	
+ 	    </div>		   
+	   	
+	  	<div data-role="collapsible" data-collapsed="true" data-theme="b">	   	
+	   	   <h3>New/Filters</h3>
+	   		
+	   		<label for="basic">Name:</label>
+	   		<input type="text" name="name" data-theme="a" id="name"/>
+	   		<label for="basic">Lastname:</label>
+	   		<input type="text" name="lastname" data-theme="a" id="lastname"/>
+	   		<label for="basic">Age:</label>
+	   		<input type="number" name="age" data-theme="a" id="age"/>	   	  		
+	   	  	
+	   	  	<a href="#" data-role="button" onclick="new_employee();">Create</a>
+	   	  	<a href="#" data-role="button" onclick="filter_list();">Filter</a>
+  		</div>
+	   	
+	   	<div data-role="collapsible" data-collapsed="true" data-theme="b" >	   	
+	   	   <h3>Employees</h3>
+	   	   
+	   	   <table data-role="table" id="table" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Columns to display..." data-column-popup-theme="a">
+	         <thead>
+	           <tr class="ui-bar-d">
+	             <th data-priority="1">Name</th>
+	             <th data-priority="2">Lastname</th>
+	             <th data-priority="3">Age</th>
+	           </tr>
+	         </thead>
+	         
+	         <tbody id="resultBody">	           
+	         </tbody>
+	        </table>
+	   	</div>	
+   </div>
+   
+   
+  </body>
+</html>
