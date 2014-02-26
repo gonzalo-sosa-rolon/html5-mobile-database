@@ -14,7 +14,7 @@ But take a look to the class DAO if you want to understand how the lib is workin
 
 ## Creating your model using the WebSQL implementation
 
-Let start creating our first example. We are going to create an Employee DAO using the WebSQLDAO.
+Let start creating our first example. We are going to create an Employee DAO using the WebSQLDAO class.
 
 ```javascript
 // test/daos.js
@@ -28,7 +28,7 @@ EmployeeDAO = WebSQLDAO.extend({
 
 ```
 
-You just have to extend the WebSQLDAO and call the WebSQLDAO constructor passing the table description. The framework go to create the table with all the fields for you.
+You just have to extend the WebSQLDAO class and call the WebSQLDAO constructor passing the table description. The framework go to create the table with all the fields for you.
 
 WebSQLDAO parameters:
 
