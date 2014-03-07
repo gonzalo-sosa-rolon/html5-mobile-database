@@ -1,16 +1,16 @@
 html5-mobile-database
 =====================
 
-H5MDB is a free lib that allow you to more easily implement mobile's CRUD.
+H5MDB is a lib that allow you to more easily implement mobile's CRUD.
 To see it working just clone the repo and open the index.html with Chrome or Safari (or compile it using Cordova and try it in your phone).
  
 # Usage
 
-You have an abstract class called DAO that create all your sql queries for you. You just need to implement the functions exec_query (to exec insert, update and delete queries) and exec_select_query to exec select queries.
+The class DAO creates all your sql queries for you. You just need to implement the functions exec_query (to exec insert, update and delete queries) and exec_select_query to exec select queries.
 
 I provide you a WebSQL implementation (that is working on Android, IOS, Chrome, Safari and Opera), so, you don't have to worry if you want to use your app in these enviroments.
 
-But take a look to the class DAO if you want to understand how the lib is working or if you want to implement the lib with another database (localStore, IndexedDB).
+Take a look to the class DAO if you want to understand how the lib is working or if you want to implement the lib with another database (localStore, IndexedDB).
 
 ## Creating your model using the WebSQL implementation
 
