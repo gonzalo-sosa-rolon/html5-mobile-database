@@ -23,6 +23,13 @@ DAO = Class.extend({
 		this.exec_query(this._prepare_delete_query(data), callback);
 		this.after_delete(data);
 	},
+	delete_all : function(callback) {
+		this.exec_query(this._prepare_delete_all(), callback);
+	},
+	_prepare_delete_all : function() {
+		var query = "DELETE FROM " + this.table;
+		return query;
+	},
 	_prepare_delete_query : function(data) {
 		var query = "DELETE FROM " + this.table + " WHERE " + this.get_id() + " = " + data[this.get_id()];
 		return query;
